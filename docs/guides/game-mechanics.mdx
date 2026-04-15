@@ -1,0 +1,108 @@
+---
+sidebar_position: 3
+title: Game Mechanics
+description: Deep dive into the core mechanics of Last Asylum
+---
+
+# Game Mechanics
+
+Understanding the core mechanics will help you make better decisions and progress faster.
+
+## Combat System
+
+### Turn Order
+
+Combat in Last Asylum uses a speed-based turn system:
+- Characters with higher **Speed** act first
+- Some skills can manipulate turn order
+- Boss phases may interrupt normal turn order
+
+### Damage Calculation
+
+```
+Final Damage = (Base ATK × Skill Multiplier × Crit Modifier) - Enemy DEF
+```
+
+Key factors:
+- **Attack (ATK)** - Base damage stat
+- **Skill Multiplier** - Each skill has different power
+- **Critical Rate** - Chance to deal bonus damage
+- **Critical Damage** - Multiplier when critting (usually 150-200%)
+- **Defense (DEF)** - Reduces incoming damage
+
+### Status Effects
+
+| Effect | Duration | Description |
+|--------|----------|-------------|
+| Burn | 2-3 turns | Damage over time (ignores DEF) |
+| Freeze | 1-2 turns | Skip turn, take extra damage |
+| Poison | 3 turns | % HP damage each turn |
+| Stun | 1 turn | Cannot act |
+| Buff Block | 2 turns | Cannot receive buffs |
+
+## Character Stats
+
+### Primary Stats
+
+- **HP** - Health points, survive more damage
+- **ATK** - Attack power for damage dealers
+- **DEF** - Reduces damage taken
+- **SPD** - Determines turn order
+
+### Secondary Stats
+
+- **Crit Rate** - Chance to critical hit
+- **Crit Damage** - Bonus damage on crit
+- **Effectiveness** - Land debuffs more reliably
+- **Resistance** - Avoid enemy debuffs
+
+## Gacha System
+
+### Summon Rates
+
+:::info[Standard Rates]
+
+- ⭐⭐⭐⭐⭐ Legendary: 1%
+- ⭐⭐⭐⭐ Epic: 5%
+- ⭐⭐⭐ Rare: 20%
+- ⭐⭐ Common: 74%
+
+:::
+
+### Pity System
+
+- **Soft pity** starts at 70 pulls
+- **Hard pity** guarantees at 90 pulls
+- Pity carries over between banners (usually)
+
+## Energy System
+
+Energy regenerates over time:
+- **1 Energy** every **5 minutes**
+- **Maximum cap** of 120-150 energy
+- Overflow allowed from mail/rewards
+
+:::tip[Efficiency Tip]
+
+Use your energy before hitting the cap to avoid wasting natural regeneration!
+
+:::
+
+## Guild Mechanics
+
+### Guild Benefits
+- Access to Guild Shop
+- Guild Boss rewards
+- Guild War participation
+- Social features and chat
+
+### Contribution
+Donate resources daily to earn:
+- Guild Points for the shop
+- Guild experience for perks
+- Personal contribution rewards
+
+## Related Guides
+
+- [Team Building](./team-building) - Apply these mechanics
+- [Resource Management](./resource-management) - Efficient farming

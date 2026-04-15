@@ -1,19 +1,19 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+announcement:
+  label: Announcement
+  description: Official announcements and news
+  permalink: /announcement
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+guide:
+  label: Guide
+  description: Tips and guides
+  permalink: /guide
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
+update:
+  label: Update
+  description: Game updates and patch notes
+  permalink: /update
 
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+event:
+  label: Event
+  description: Event information
+  permalink: /event
