@@ -1,6 +1,7 @@
 /**
  * Last Asylum - Custom Theme
  * A dark, atmospheric theme for our gaming wiki
+ * With gradient backgrounds inspired by BankaiTechDocs
  */
 
 /* Light mode - still dark-ish for gaming feel */
@@ -14,6 +15,15 @@
   --ifm-color-primary-lightest: #ddd6fe;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(139, 92, 246, 0.1);
+  --ifm-link-color: var(--ifm-color-primary-darkest);
+  --ifm-background-color: #f0eef5;
+  --ifm-navbar-background-color: rgba(240, 238, 245, 0.92);
+  --ifm-footer-background-color: #1a1a2e;
+  --ifm-font-color-base: #1a1a2e;
+  --ifm-heading-color: #0f0f1a;
+  --ifm-toc-border-color: rgba(139, 92, 246, 0.3);
+  --ifm-card-background-color: rgba(255, 255, 255, 0.9);
+  --floating-widget-clearance: 225px;
   
   /* Custom variables */
   --la-accent-red: #ef4444;
@@ -30,16 +40,19 @@
   --ifm-color-primary-light: #ddd6fe;
   --ifm-color-primary-lighter: #ede9fe;
   --ifm-color-primary-lightest: #f5f3ff;
-  --ifm-background-color: #0f0f1a;
-  --ifm-background-surface-color: #1a1a2e;
   --docusaurus-highlighted-code-line-bg: rgba(167, 139, 250, 0.2);
   
+  --ifm-link-color: #d4c6ff;
+  --ifm-background-color: #0a0a12;
+  --ifm-background-surface-color: #12121e;
+  --ifm-navbar-background-color: rgba(10, 10, 18, 0.9);
+  --ifm-footer-background-color: #06060a;
+  
   /* HIGH CONTRAST TEXT COLORS */
-  --ifm-font-color-base: #f0f0f5;
+  --ifm-font-color-base: #e8e4f5;
   --ifm-font-color-secondary: #c5c5d5;
-  --ifm-heading-color: #ffffff;
-  --ifm-link-color: #c4b5fd;
-  --ifm-link-hover-color: #e9e3ff;
+  --ifm-heading-color: #f8f6ff;
+  --ifm-link-hover-color: #f0e8ff;
   
   /* Navbar text */
   --ifm-navbar-link-color: #f0f0f5;
@@ -49,11 +62,196 @@
   --ifm-menu-color: #e0e0e8;
   --ifm-menu-color-active: #ffffff;
   
-  /* Table of contents */
+  /* Table of contents & borders */
   --ifm-toc-link-color: #c5c5d5;
+  --ifm-toc-border-color: rgba(196, 181, 253, 0.3);
+  --ifm-card-background-color: rgba(18, 18, 30, 0.8);
 }
 
-/* Hero section styling */
+/* ==========================================
+   GRADIENT BACKGROUNDS
+   ========================================== */
+
+html {
+  background:
+    radial-gradient(circle at 10% 12%, rgba(139, 92, 246, 0.12), transparent 28%),
+    radial-gradient(circle at 88% 16%, rgba(124, 58, 237, 0.14), transparent 25%),
+    var(--ifm-background-color);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: var(--ifm-background-color);
+}
+
+html[data-theme='dark'] {
+  background:
+    radial-gradient(circle at 12% 10%, rgba(167, 139, 250, 0.18), transparent 30%),
+    radial-gradient(circle at 84% 15%, rgba(124, 58, 237, 0.22), transparent 30%),
+    radial-gradient(circle at 50% 80%, rgba(139, 92, 246, 0.08), transparent 40%),
+    linear-gradient(180deg, #0a0a12 0%, #050508 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: var(--ifm-background-color);
+}
+
+/* Make containers transparent to show gradient */
+.main-wrapper,
+.theme-layout-main,
+main,
+body {
+  background: transparent !important;
+}
+
+/* ==========================================
+   NAVBAR
+   ========================================== */
+
+.navbar {
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+}
+
+@media (min-width: 997px) {
+  .navbar {
+    backdrop-filter: blur(12px);
+  }
+}
+
+[data-theme='dark'] .navbar {
+  background-color: rgba(10, 10, 18, 0.85);
+}
+
+[data-theme='dark'] .navbar__title {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+[data-theme='dark'] .navbar__link {
+  color: #e0e0f0;
+  font-weight: 500;
+}
+
+[data-theme='dark'] .navbar__link:hover {
+  color: #ffffff;
+}
+
+[data-theme='dark'] .navbar__link--active {
+  color: #ffffff;
+}
+
+/* ==========================================
+   SIDEBAR
+   ========================================== */
+
+.theme-doc-sidebar-container,
+.theme-doc-sidebar-menu {
+  background: var(--ifm-background-color);
+  background: color-mix(in srgb, var(--ifm-background-color) 94%, var(--ifm-color-primary) 6%);
+}
+
+[data-theme='dark'] .menu__link {
+  color: #d0d0e0;
+}
+
+[data-theme='dark'] .menu__link:hover {
+  color: #ffffff;
+  background-color: rgba(139, 92, 246, 0.12);
+}
+
+[data-theme='dark'] .menu__link--active {
+  color: #ffffff !important;
+  background-color: rgba(139, 92, 246, 0.2);
+  font-weight: 500;
+}
+
+[data-theme='dark'] .menu__list-item-collapsible .menu__link {
+  color: #e0e0f0;
+}
+
+/* Mobile sidebar */
+@media (max-width: 996px) {
+  .navbar-sidebar {
+    background: var(--ifm-background-color);
+    background: color-mix(in srgb, var(--ifm-background-color) 92%, var(--ifm-color-primary) 8%);
+    z-index: 1001;
+  }
+
+  .navbar-sidebar__backdrop {
+    z-index: 1000;
+  }
+
+  html.navbar-sidebar--show .navbar-sidebar,
+  body.navbar-sidebar--show .navbar-sidebar {
+    transform: translate3d(0, 0, 0) !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+/* ==========================================
+   CARDS, PAGINATION & TOC
+   ========================================== */
+
+.card,
+.pagination-nav__link,
+.table-of-contents {
+  border: 1px solid var(--ifm-toc-border-color);
+  border-radius: 12px;
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--ifm-color-primary);
+}
+
+/* Prevent TOC from overlapping with floating widgets at bottom right */
+.table-of-contents {
+  max-height: calc(100vh - var(--floating-widget-clearance)) !important;
+  overflow-y: auto !important;
+}
+
+.theme-doc-toc-desktop {
+  max-height: calc(100vh - var(--floating-widget-clearance)) !important;
+}
+
+.theme-doc-toc-desktop .table-of-contents {
+  padding-bottom: 20px !important;
+}
+
+[data-theme='dark'] .table-of-contents__link {
+  color: #b5b5c5;
+}
+
+[data-theme='dark'] .table-of-contents__link:hover,
+[data-theme='dark'] .table-of-contents__link--active {
+  color: #ffffff;
+}
+
+/* ==========================================
+   BUTTONS
+   ========================================== */
+
+.button--secondary {
+  color: #ffffff;
+  border-color: var(--ifm-color-primary);
+  background-color: rgba(139, 92, 246, 0.2);
+  font-weight: 600;
+}
+
+.button--secondary:hover {
+  background-color: var(--ifm-color-primary);
+  color: #ffffff;
+}
+
+.button.button--primary {
+  box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.28), 0 8px 24px rgba(26, 26, 46, 0.35);
+}
+
+.button.button--primary:hover {
+  box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.4), 0 12px 32px rgba(26, 26, 46, 0.45);
+}
+
+/* ==========================================
+   HERO SECTION
+   ========================================== */
+
 .hero--primary {
   background: linear-gradient(135deg, #1a1a2e 0%, #2d1b4e 50%, #1a1a2e 100%);
   position: relative;
@@ -68,15 +266,15 @@
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 50%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+    radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(168, 85, 247, 0.15) 0%, transparent 50%);
   pointer-events: none;
 }
 
 .hero__title {
   font-size: 3.5rem;
   color: #ffffff !important;
-  text-shadow: 0 0 40px rgba(139, 92, 246, 0.6), 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 0 50px rgba(167, 139, 250, 0.7), 0 2px 4px rgba(0, 0, 0, 0.5);
   font-weight: 700;
 }
 
@@ -86,18 +284,9 @@
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-/* Button styling */
-.button--secondary {
-  color: #ffffff;
-  border-color: var(--ifm-color-primary);
-  background-color: rgba(139, 92, 246, 0.2);
-  font-weight: 600;
-}
-
-.button--secondary:hover {
-  background-color: var(--ifm-color-primary);
-  color: #ffffff;
-}
+/* ==========================================
+   MARKDOWN CONTENT
+   ========================================== */
 
 /* High contrast headings in docs */
 [data-theme='dark'] .markdown h1,
@@ -110,7 +299,7 @@
 }
 
 [data-theme='dark'] .markdown h1 {
-  text-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+  text-shadow: 0 0 40px rgba(167, 139, 250, 0.4);
 }
 
 [data-theme='dark'] .markdown p,
@@ -123,33 +312,60 @@
   font-weight: 600;
 }
 
+/* Code styling */
+code {
+  border: 1px solid color-mix(in srgb, var(--ifm-color-primary) 40%, transparent);
+}
+
 [data-theme='dark'] .markdown code {
   color: #f0e6ff;
   background-color: rgba(139, 92, 246, 0.15);
 }
 
-/* Table styling for dark theme - high contrast */
+[data-theme='dark'] .prism-code {
+  background-color: #0d0d18 !important;
+}
+
+[data-theme='dark'] .prism-code .token {
+  color: #e8e8f0;
+}
+
+/* ==========================================
+   TABLES
+   ========================================== */
+
 [data-theme='dark'] table {
-  border-color: #4a4a6a;
+  border-color: rgba(167, 139, 250, 0.3);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 [data-theme='dark'] table th {
-  background-color: #2d2d50;
+  background-color: rgba(139, 92, 246, 0.15);
   color: #ffffff;
   font-weight: 600;
 }
 
 [data-theme='dark'] table td {
   color: #e8e8f0;
+  border-color: rgba(167, 139, 250, 0.2);
 }
 
 [data-theme='dark'] table tr:nth-child(even) {
-  background-color: rgba(139, 92, 246, 0.08);
+  background-color: rgba(139, 92, 246, 0.06);
 }
 
-/* Admonition styling - better contrast */
+[data-theme='dark'] table tr:hover {
+  background-color: rgba(139, 92, 246, 0.1);
+}
+
+/* ==========================================
+   ADMONITIONS
+   ========================================== */
+
 [data-theme='dark'] .alert {
   color: #f0f0f5;
+  border-radius: 12px;
 }
 
 [data-theme='dark'] .alert--info {
@@ -176,38 +392,13 @@
   color: #ffffff !important;
 }
 
-/* Sidebar styling - better contrast */
-[data-theme='dark'] .menu__link {
-  color: #d0d0e0;
-}
+/* ==========================================
+   FOOTER
+   ========================================== */
 
-[data-theme='dark'] .menu__link:hover {
-  color: #ffffff;
-  background-color: rgba(139, 92, 246, 0.1);
-}
-
-[data-theme='dark'] .menu__link--active {
-  color: #ffffff !important;
-  background-color: rgba(139, 92, 246, 0.2);
-  font-weight: 500;
-}
-
-[data-theme='dark'] .menu__list-item-collapsible .menu__link {
-  color: #e0e0f0;
-}
-
-/* Code blocks - better text contrast */
-[data-theme='dark'] .prism-code {
-  background-color: #1e1e30 !important;
-}
-
-[data-theme='dark'] .prism-code .token {
-  color: #e8e8f0;
-}
-
-/* Footer - better contrast */
 .footer--dark {
-  background-color: #0a0a14;
+  background: linear-gradient(180deg, #0a0a12 0%, #050508 100%);
+  border-top: 1px solid var(--ifm-toc-border-color);
 }
 
 [data-theme='dark'] .footer__title {
@@ -222,31 +413,10 @@
   color: #ffffff;
 }
 
-/* Navbar - better contrast */
-[data-theme='dark'] .navbar {
-  background-color: rgba(15, 15, 26, 0.98);
-  backdrop-filter: blur(10px);
-}
+/* ==========================================
+   BREADCRUMBS & PAGINATION
+   ========================================== */
 
-[data-theme='dark'] .navbar__title {
-  color: #ffffff;
-  font-weight: 600;
-}
-
-[data-theme='dark'] .navbar__link {
-  color: #e0e0f0;
-  font-weight: 500;
-}
-
-[data-theme='dark'] .navbar__link:hover {
-  color: #ffffff;
-}
-
-[data-theme='dark'] .navbar__link--active {
-  color: #ffffff;
-}
-
-/* Breadcrumbs */
 [data-theme='dark'] .breadcrumbs__link {
   color: #c5c5d5;
 }
@@ -255,19 +425,8 @@
   color: #ffffff;
 }
 
-/* Table of contents */
-[data-theme='dark'] .table-of-contents__link {
-  color: #b5b5c5;
-}
-
-[data-theme='dark'] .table-of-contents__link:hover,
-[data-theme='dark'] .table-of-contents__link--active {
-  color: #ffffff;
-}
-
-/* Pagination */
 [data-theme='dark'] .pagination-nav__label {
-  color: #c5c5d5;
+  color: #e0e0f0;
 }
 
 [data-theme='dark'] .pagination-nav__sublabel {
@@ -277,6 +436,10 @@
 [data-theme='dark'] .pagination-nav__link:hover .pagination-nav__label {
   color: #ffffff;
 }
+
+/* ==========================================
+   UTILITIES
+   ========================================== */
 
 /* Smooth scrolling */
 html {
@@ -290,18 +453,15 @@ html {
 }
 
 [data-theme='dark'] ::-webkit-scrollbar-track {
-  background: #1a1a2e;
+  background: #0a0a12;
 }
 
 [data-theme='dark'] ::-webkit-scrollbar-thumb {
-  background: #4a4a6a;
+  background: linear-gradient(180deg, #3a3a5a 0%, #2a2a4a 100%);
   border-radius: 5px;
+  border: 2px solid #0a0a12;
 }
 
 [data-theme='dark'] ::-webkit-scrollbar-thumb:hover {
-  background: var(--ifm-color-primary);
-}
-
-[data-theme='dark'] ::-webkit-scrollbar-thumb:hover {
-  background: var(--ifm-color-primary);
+  background: linear-gradient(180deg, #4a4a6a 0%, #3a3a5a 100%);
 }
