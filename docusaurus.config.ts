@@ -65,6 +65,23 @@ const config: Config = {
     ],
   ],
 
+  themes: [
+    [
+      '@easyops-cn/docusaurus-search-local',
+      {
+        hashed: true,
+        language: ['en'],
+        highlightSearchTermsOnTargetPage: true,
+        explicitSearchResultPath: true,
+        docsRouteBasePath: '/docs',
+        blogRouteBasePath: '/blog',
+        indexBlog: true,
+        indexDocs: true,
+        indexPages: false,
+      },
+    ],
+  ],
+
   themeConfig: {
     // Replace with your project's social card
     image: 'img/last-asylum-social-card.jpg',
