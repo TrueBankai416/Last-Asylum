@@ -7,7 +7,6 @@ type Props = WrapperProps<typeof NavbarType>;
 
 const navbarBadgesStyle: React.CSSProperties = {
   backgroundColor: 'var(--ifm-navbar-background-color)',
-  borderBottom: '1px solid var(--ifm-toc-border-color)',
   padding: '0.5rem 1rem',
   display: 'flex',
   gap: '0.5rem',
