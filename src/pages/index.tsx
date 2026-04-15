@@ -29,6 +29,21 @@ function HomepageHeader() {
   );
 }
 
+function Disclaimer() {
+  return (
+    <section className={styles.disclaimer}>
+      <div className="container">
+        <p>
+          <strong>Disclaimer:</strong> This is a fan-made community wiki and is not affiliated with, 
+          endorsed by, or connected to the developers or publishers of Last Asylum. All game content, 
+          images, and trademarks are the property of their respective owners. This site is created 
+          by fans, for fans, to help players enjoy the game.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
@@ -38,6 +53,7 @@ export default function Home(): ReactNode {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
+        <Disclaimer />
       </main>
     </Layout>
   );

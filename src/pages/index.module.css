@@ -21,3 +21,24 @@
   align-items: center;
   justify-content: center;
 }
+
+.disclaimer {
+  padding: 2rem 0;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(138, 43, 226, 0.2);
+  text-align: center;
+}
+
+.disclaimer p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 0.85rem;
+  color: var(--ifm-color-secondary-darkest);
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+[data-theme='dark'] .disclaimer p {
+  color: var(--ifm-color-secondary-lighter);
+  opacity: 0.7;
+}
