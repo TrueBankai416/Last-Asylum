@@ -18,7 +18,7 @@ function HomepageHeader() {
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <p className={styles.createdBy}>
-          Created by the <strong>#1 Alliance Grimm!</strong> 🏆
+          Created by the <strong>#1 Alliance Grim!</strong> 🏆
         </p>
         <div className={styles.buttons}>
           <Link
