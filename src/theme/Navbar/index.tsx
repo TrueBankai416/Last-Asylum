@@ -16,66 +16,58 @@ const navbarBadgesStyle: React.CSSProperties = {
   alignItems: 'center',
 };
 
+const githubRepoUrl = 'https://github.com/TrueBankai416/Last-Asylum';
+const githubIssuesUrl = `${githubRepoUrl}/issues`;
+
+const navbarBadges = [
+  {
+    href: 'https://last-asylum.bankai-tech.com',
+    src: 'https://img.shields.io/website?url=https%3A%2F%2Flast-asylum.bankai-tech.com',
+    label: 'Visit the Last Asylum Wiki website',
+    alt: 'Website',
+  },
+  {
+    href: githubRepoUrl,
+    src: 'https://img.shields.io/github/last-commit/TrueBankai416/Last-Asylum/main',
+    label: 'Open the Last-Asylum GitHub repository (last commit)',
+    alt: 'GitHub last commit',
+  },
+  {
+    href: githubRepoUrl,
+    src: 'https://img.shields.io/github/commit-activity/t/TrueBankai416/Last-Asylum/main',
+    label: 'View commit activity for the Last-Asylum GitHub repository',
+    alt: 'GitHub commit activity',
+  },
+  {
+    href: githubIssuesUrl,
+    src: 'https://img.shields.io/github/issues/TrueBankai416/Last-Asylum',
+    label: 'View open issues for the Last-Asylum GitHub repository',
+    alt: 'GitHub Issues',
+  },
+  {
+    href: 'https://discord.gg/kuuaCwn4Vk',
+    src: 'https://img.shields.io/discord/1486941490889490497?label=Discord',
+    label: 'Join the Last Asylum Discord server',
+    alt: 'Discord',
+  },
+];
+
 export default function NavbarWrapper(props: Props): JSX.Element {
   return (
     <>
       <Navbar {...props} />
       <div style={navbarBadgesStyle}>
-        <a
-          href="https://last-asylum.bankai-tech.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Visit the Last Asylum Wiki website"
-        >
-          <img
-            src="https://img.shields.io/website?url=https%3A%2F%2Flast-asylum.bankai-tech.com"
-            alt="Website"
-          />
-        </a>
-        <a
-          href="https://github.com/TrueBankai416/Last-Asylum"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Open the Last-Asylum GitHub repository (last commit)"
-        >
-          <img
-            src="https://img.shields.io/github/last-commit/TrueBankai416/Last-Asylum/main"
-            alt="GitHub last commit"
-          />
-        </a>
-        <a
-          href="https://github.com/TrueBankai416/Last-Asylum"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="View commit activity for the Last-Asylum GitHub repository"
-        >
-          <img
-            src="https://img.shields.io/github/commit-activity/t/TrueBankai416/Last-Asylum/main"
-            alt="GitHub commit activity"
-          />
-        </a>
-        <a
-          href="https://github.com/TrueBankai416/Last-Asylum/issues"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="View open issues for the Last-Asylum GitHub repository"
-        >
-          <img
-            src="https://img.shields.io/github/issues/TrueBankai416/Last-Asylum"
-            alt="GitHub Issues"
-          />
-        </a>
-        <a
-          href="https://discord.gg/kuuaCwn4Vk"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Join the Last Asylum Discord server"
-        >
-          <img
-            src="https://img.shields.io/discord/1486941490889490497?label=Discord"
-            alt="Discord"
-          />
-        </a>
+        {navbarBadges.map((badge) => (
+          <a
+            key={`${badge.href}-${badge.alt}`}
+            href={badge.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={badge.label}
+          >
+            <img src={badge.src} alt={badge.alt} />
+          </a>
+        ))}
       </div>
     </>
   );
