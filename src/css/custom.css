@@ -45,7 +45,7 @@
   --ifm-link-color: #d4c6ff;
   --ifm-background-color: #0a0a12;
   --ifm-background-surface-color: #12121e;
-  --ifm-navbar-background-color: rgba(10, 10, 18, 0.9);
+  --ifm-navbar-background-color: rgba(10, 10, 18, 0.85);
   --ifm-footer-background-color: #06060a;
   
   /* HIGH CONTRAST TEXT COLORS */
@@ -113,10 +113,6 @@ body {
   .navbar {
     backdrop-filter: blur(12px);
   }
-}
-
-[data-theme='dark'] .navbar {
-  background-color: rgba(10, 10, 18, 0.85);
 }
 
 [data-theme='dark'] .navbar__title {
