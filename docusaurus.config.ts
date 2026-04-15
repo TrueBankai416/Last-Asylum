@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'Last Asylum',
+  tagline: 'Your Ultimate Guide to Surviving the Asylum',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -15,15 +15,15 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://truebankai416.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'TrueBankai416', // Usually your GitHub org/user name.
+  projectName: 'Last-Asylum', // Usually your repo name.
 
   onBrokenLinks: 'throw',
 
@@ -41,10 +41,8 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/TrueBankai416/Last-Asylum/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -52,11 +50,10 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
+          blogTitle: 'Last Asylum News',
+          blogDescription: 'Latest updates, patch notes, and community news for Last Asylum',
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
+            'https://github.com/TrueBankai416/Last-Asylum/tree/main/',
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
@@ -70,26 +67,45 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/last-asylum-social-card.jpg',
     colorMode: {
+      defaultMode: 'dark',
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'My Site',
+      title: 'Last Asylum',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'Last Asylum Logo',
         src: 'img/logo.svg',
       },
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'guidesSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Guides',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/facebook/docusaurus',
+          type: 'docSidebar',
+          sidebarId: 'charactersSidebar',
+          position: 'left',
+          label: 'Characters',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'strategiesSidebar',
+          position: 'left',
+          label: 'Strategies',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'eventsSidebar',
+          position: 'left',
+          label: 'Events',
+        },
+        {to: '/blog', label: 'News', position: 'left'},
+        {
+          href: 'https://github.com/TrueBankai416/Last-Asylum',
           label: 'GitHub',
           position: 'right',
         },
@@ -99,11 +115,28 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Guides',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'Getting Started',
+              to: '/docs/guides/getting-started',
+            },
+            {
+              label: 'Beginner Tips',
+              to: '/docs/guides/beginner-tips',
+            },
+          ],
+        },
+        {
+          title: 'Game Info',
+          items: [
+            {
+              label: 'Characters',
+              to: '/docs/characters/overview',
+            },
+            {
+              label: 'Events',
+              to: '/docs/events/current',
             },
           ],
         },
@@ -111,16 +144,12 @@ const config: Config = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
               label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              href: '#',
             },
             {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
+              label: 'Reddit',
+              href: '#',
             },
           ],
         },
@@ -128,17 +157,17 @@ const config: Config = {
           title: 'More',
           items: [
             {
-              label: 'Blog',
+              label: 'News',
               to: '/blog',
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/TrueBankai416/Last-Asylum',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Unofficial Last Asylum Wiki. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
