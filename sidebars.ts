@@ -24,6 +24,13 @@ const sidebars: SidebarsConfig = {
         'guides/team-building',
       ],
     },
+    {
+      type: 'category',
+      label: 'Community',
+      items: [
+        'guides/discord-guide',
+      ],
+    },
   ],
   
   charactersSidebar: [
